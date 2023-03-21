@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon';
+import navData from '../data/navData';
 ---
 
 <nav aria-label="Primary">
@@ -7,6 +8,8 @@ import { Icon } from 'astro-icon';
     <a href="/" class="logomark" aria-label="Go home">
       <Icon name="logo" width="60" />
     </a>
-    <ul></ul>
+    <ul>
+      {navData.map((item) => <a href={item.path}>{item.name}</a>)}
+    </ul>
   </div>
 </nav>
