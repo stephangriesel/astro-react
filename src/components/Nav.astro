@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon';
 import navData from '../data/navData';
+import Link from './Link.astro';
 ---
 
 <nav aria-label="Primary">
@@ -9,7 +10,22 @@ import navData from '../data/navData';
       <Icon name="logo" width="60" />
     </a>
     <ul>
-      {navData.map((item) => <a href={item.path}>{item.name}</a>)}
+      {
+        navData.map((item) => (
+          <Link
+            text={item.name}
+            href={item.path}
+            style="primary"
+            isFilled={false}
+            borderVisible={false}
+            data-navlink
+          />
+        ))
+      }
     </ul>
   </div>
 </nav>
+
+<script>
+  import '../js/nav';
+</script>
