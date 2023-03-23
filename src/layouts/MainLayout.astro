@@ -12,7 +12,9 @@ const { title = 'My Page', description = 'Welcome to my page' } = Astro.props;
   <MainHead title={title} description={description} />
   <body>
     <Nav />
-    <slot>Default Slot</slot>
+    <main>
+      <slot>Default Slot</slot>
+    </main>
     <Footer />
   </body>
 </html>
