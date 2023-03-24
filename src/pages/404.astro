@@ -1,0 +1,30 @@
+---
+import Link from '../components/Link.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Page Not Found">
+  <div
+    class="container"
+    style={{
+      display: 'grid',
+      placeItems: 'center',
+      textAlign: 'center',
+      gap: 'var(--space-sm)',
+    }}
+  >
+    <div>
+      <h1 class="h1">Oops, not found!</h1>
+      <p>Something went wrong, let's try again...</p>
+    </div>
+    <Link
+      href="/"
+      style="primary"
+      text="Go Home"
+      icon={{
+        name: 'carbon:home',
+        side: 'right',
+      }}
+    />
+  </div>
+</MainLayout>
