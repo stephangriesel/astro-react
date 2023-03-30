@@ -1,4 +1,5 @@
 ---
+layout: '../../layouts/BlogPostLayout.astro'
 title: A Post about Important Items Of Life
 date: 2023-01-20
 author: Belinda Roux
