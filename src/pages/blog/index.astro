@@ -7,5 +7,6 @@ console.log({ allPosts });
 ---
 
 <MainLayout title="Blog" description="My blog page">
-  {allPosts.map((post) => <PostCard {post} />)}
+  <!-- {allPosts.map((post) => <PostCard {post} />)} -->
+  <PostCard frontmatter={allPosts[0].frontmatter} url={allPosts[0].url} />
 </MainLayout>
