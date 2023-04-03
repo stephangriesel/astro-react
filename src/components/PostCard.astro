@@ -1,5 +1,32 @@
 ---
-const { post } = Astro.props;
+import { Image } from '@astrojs/image/components';
+import { slugify, formatDate } from '../js/utils';
+
+const { frontmatter, url } = Astro.props;
+console.log({ frontmatter });
+const { title, date, author, image, description, category } = frontmatter;
 ---
 
-<p>{post.frontmatter.title}</p>
+<p>{frontmatter.title}</p>
+
+<article class="card">
+  <small>
+    <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+  </small>
+  <a href={url}>
+    <Image
+      src={image.src}
+      alt={image.alt}
+      width="400"
+      height="250"
+      format="webp"
+      fit="cover"
+      quality={80}
+      aspectRatio="4:1"
+    />
+  </a>
+  <h1 class="h2">{title}</h1>
+  <p>
+    by <a href={`/author/${slugify(author)}/`}>{author}</a> • {formatDate(date)}
+  </p>
+</article>
