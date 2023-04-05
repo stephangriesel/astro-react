@@ -16,3 +16,12 @@ export function formatDate(date){
     timeZone: "UTC",
   })
 }
+
+export function formatBlogPosts(posts, {
+  filterOutDrafts = true,
+  filterOutFuturePosts = true,
+  sortByDate = true,
+  limit = undefined
+} = {}){
+  console.log(posts)
+}
