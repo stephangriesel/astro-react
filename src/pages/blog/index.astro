@@ -1,9 +1,12 @@
 ---
 import PostCard from '../../components/PostCard.astro';
 import MainLayout from '../../layouts/MainLayout.astro';
+import { formatBlogPosts } from '../../js/utils';
 
 const allPosts = await Astro.glob('./*.md');
-console.log({ allPosts });
+console.log('allPosts', allPosts);
+const formattedPosts = formatBlogPosts(allPosts);
+console.log('formattedPosts', formattedPosts);
 ---
 
 <MainLayout title="Blog" description="My blog page">
