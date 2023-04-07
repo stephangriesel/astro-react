@@ -5,7 +5,12 @@ import { formatBlogPosts } from '../../js/utils';
 
 const allPosts = await Astro.glob('./*.md');
 console.log('allPosts', allPosts);
-const formattedPosts = formatBlogPosts(allPosts);
+const formattedPosts = formatBlogPosts(allPosts, {
+  filterOutDrafts: false,
+  filterOutFuturePosts: false,
+  sortByDate: true,
+  // limit: 2,
+});
 console.log('formattedPosts', formattedPosts);
 ---
 
@@ -14,7 +19,7 @@ console.log('formattedPosts', formattedPosts);
     <h1 class="h1">New Blog Posts</h1>
     <div class="post-container">
       {
-        allPosts.map((post) => (
+        formattedPosts.map((post) => (
           <PostCard
             frontmatter={post.frontmatter}
             url={post.url}
