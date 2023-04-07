@@ -26,14 +26,14 @@ export function formatBlogPosts(posts, {
   const filteredPosts = posts.reduce((acc,post) => {
     const { date, draft } = post.frontmatter;
     if (filterOutDrafts && draft) return acc;
-    if (filterOutFuturePosts && new Date(date) > new Date ()) 
+    if (filterOutFuturePosts && new Date(date) > new Date ())
     return acc;
     acc.push(post)
     return acc;
   },[])
 
   if(sortByDate){
-    filteredPosts.sort((a,b) => new Date(b.frontmatter.date - new Date(a.frontmatter.date)))
+    filteredPosts.sort((a,b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
   } else {
     filteredPosts.sort(() => Math.random() - 0.5)
   }
