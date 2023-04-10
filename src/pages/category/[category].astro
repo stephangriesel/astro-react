@@ -1,0 +1,61 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+import { slugify, formatBlogPosts } from '../../js/utils';
+
+const { category } = Astro.params;
+const { name } = Astro.props;
+
+const allPosts = await Astro.glob('../blog/*.md');
+console.log('allPosts from category page', allPosts);
+const formattedPosts = formatBlogPosts(allPosts, {
+  filterOutDrafts: false,
+  filterOutFuturePosts: false,
+  sortByDate: true,
+  // limit: 2,
+});
+console.log('formattedPosts from category page', formattedPosts);
+
+const articlePost = formattedPosts.filter(
+  (post) => slugify(post.frontmatter.category) === category
+);
+
+export async function getStaticPaths() {
+  return [
+    {
+      params: { category: slugify('Reference Docs') },
+      props: { name: 'Reference Docs' },
+    },
+    {
+      params: { category: slugify('General') },
+      props: { name: 'General' },
+    },
+    {
+      params: { category: slugify('CSS') },
+      props: { name: 'CSS' },
+    },
+    {
+      params: { category: slugify('Astro') },
+      props: { name: 'Astro' },
+    },
+  ];
+}
+---
+
+<MainLayout title={name}>
+  <section class="container" aria-label={`Posts about ${name}`}>
+    <h1 class="h1">Posts about <span>{name}</span></h1>
+    <div class="post-container">
+      {
+        articlePost.map((post) => (
+          <PostCard
+            frontmatter={post.frontmatter}
+            url={post.url}
+            tagType="h2"
+          />
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>
