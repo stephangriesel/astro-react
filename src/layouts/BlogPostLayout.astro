@@ -7,7 +7,7 @@ import RelatedPosts from '../components/RelatedPosts.astro';
 import { formatBlogPosts } from '../js/utils';
 
 const { frontmatter } = Astro.props;
-console.log({ frontmatter });
+// console.log({ frontmatter });
 
 const { title, description, date, category, author, image } = frontmatter;
 
@@ -31,7 +31,13 @@ const relatedPosts = formattedPosts
 console.log('related posts', relatedPosts);
 ---
 
-<MainLayout title={title} description={description}>
+<MainLayout
+  title={title}
+  description={description}
+  image={frontmatter.image}
+  frontmatter={frontmatter}
+  robots={frontmatter.robots}
+>
   <PostHeader {title} {description} {date} {category} {author} {image} />
   <div class="post-content">
     <div class="content">
