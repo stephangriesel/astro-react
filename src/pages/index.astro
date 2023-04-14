@@ -9,14 +9,14 @@ import Link from '../components/Link.astro';
 import { Image } from '@astrojs/image/components';
 
 const allPosts = await Astro.glob('./blog/*.md');
-console.log('allPosts from home', allPosts);
+// console.log('allPosts from home', allPosts);
 const formattedPosts = formatBlogPosts(allPosts, {
   filterOutDrafts: false,
   filterOutFuturePosts: false,
   sortByDate: true,
   limit: 3,
 });
-console.log('formattedPosts from home', formattedPosts);
+// console.log('formattedPosts from home', formattedPosts);
 ---
 
 <MainLayout title="Index" description="My index page">

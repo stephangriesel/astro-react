@@ -7,21 +7,21 @@ import CategoryCloud from '../../components/CategoryCloud.astro';
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await Astro.glob('./*.md');
-  console.log('allPosts', allPosts);
+  // console.log('allPosts', allPosts);
   const formattedPosts = formatBlogPosts(allPosts, {
     filterOutDrafts: false,
     filterOutFuturePosts: false,
     sortByDate: true,
     // limit: 2,
   });
-  console.log('formattedPosts', formattedPosts);
+  // console.log('formattedPosts', formattedPosts);
   return paginate(formattedPosts, {
     pageSize: 3,
   });
 }
 
 const { page } = Astro.props;
-console.log('page props', page);
+// console.log('page props', page);
 ---
 
 <MainLayout title="Blog" description="My blog page">

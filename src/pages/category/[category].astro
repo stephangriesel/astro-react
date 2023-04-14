@@ -8,14 +8,14 @@ const { category } = Astro.params;
 const { name } = Astro.props;
 
 const allPosts = await Astro.glob('../blog/*.md');
-console.log('allPosts from category page', allPosts);
+// console.log('allPosts from category page', allPosts);
 const formattedPosts = formatBlogPosts(allPosts, {
   filterOutDrafts: false,
   filterOutFuturePosts: false,
   sortByDate: true,
   // limit: 2,
 });
-console.log('formattedPosts from category page', formattedPosts);
+// console.log('formattedPosts from category page', formattedPosts);
 
 const articlePost = formattedPosts.filter(
   (post) => slugify(post.frontmatter.category) === category

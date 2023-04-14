@@ -2,18 +2,18 @@
 import { formatBlogPosts, slugify } from '../js/utils';
 
 const allPosts = await Astro.glob('../pages/blog/*.md');
-console.log('allPosts from category cloud', allPosts);
+// console.log('allPosts from category cloud', allPosts);
 const formattedPosts = formatBlogPosts(allPosts, {
   filterOutDrafts: false,
   filterOutFuturePosts: false,
   sortByDate: true,
   // limit: 2,
 });
-console.log('formattedPosts from category cloud', formattedPosts);
+// console.log('formattedPosts from category cloud', formattedPosts);
 const allCategories = formattedPosts
   .map((article) => article.frontmatter.category.toLowerCase())
   .flat();
-console.log('all categories', allCategories);
+// console.log('all categories', allCategories);
 
 const processedCategories = allCategories.reduce((acc, category) => {
   const value = acc[category] || 0;
