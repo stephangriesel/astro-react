@@ -5,11 +5,23 @@ import Nav from '../components/Nav.astro';
 
 import '../styles/global.css';
 
-const { title = 'My Page', description = 'Welcome to my page' } = Astro.props;
+const {
+  title = 'My Page',
+  description = 'Welcome to my page',
+  image,
+  frontmatter,
+  robots,
+} = Astro.props;
 ---
 
 <html lang="en">
-  <MainHead title={title} description={description} />
+  <MainHead
+    title={title}
+    description={description}
+    image={image}
+    frontmatter={frontmatter}
+    robots={robots}
+  />
   <body>
     <Nav />
     <main>
