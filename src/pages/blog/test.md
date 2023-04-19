@@ -6,7 +6,7 @@ author: Test
 image:
   src: /images/pexels-christina-morillo-1181263.jpg
   alt: Test
-draft: true
+draft: false
 category: Test
 ---
 Test
