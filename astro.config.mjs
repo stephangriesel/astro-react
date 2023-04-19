@@ -1,12 +1,11 @@
 import { defineConfig } from 'astro/config';
 import image from "@astrojs/image";
 import NetlifyCMS from 'astro-netlify-cms';
-
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site:'https://master--verdant-medovik-e9bb32.netlify.app/',
+  site: 'https://master--verdant-medovik-e9bb32.netlify.app/',
   integrations: [
     NetlifyCMS({
       config: {
@@ -87,8 +86,11 @@ export default defineConfig({
       },
     }),
     image({
-    serviceEntryPoint: '@astrojs/image/sharp'
-  }), sitemap({
-    filter: (page) => page !== 'https://master--verdant-medovik-e9bb32.netlify.app/about/'
-  })]
+      serviceEntryPoint: '@astrojs/image/sharp',
+      logLevel: 'debug'
+    }), 
+    sitemap({
+      filter: (page) => page !== 'https://master--verdant-medovik-e9bb32.netlify.app/about/'
+    })
+  ]
 });
