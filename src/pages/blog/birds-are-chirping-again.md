@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: Birds are chirping again
+title: Birds are chirping again and again
 date: 2023-04-18T05:14:44.694Z
 author: Stephan Griesel
 image:
