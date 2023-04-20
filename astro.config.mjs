@@ -6,11 +6,6 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://master--verdant-medovik-e9bb32.netlify.app/',
-  server: {
-      headers: {
-          "Access-Control-Allow-Origin": "*"
-      }
-  },
   integrations: [
     NetlifyCMS({
       config: {
