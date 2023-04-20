@@ -6,7 +6,7 @@ author: Stephan Griesel
 image:
   src: /images/pexels-christina-morillo-1181263.jpg
   alt: Girl codes
-draft: true
+draft: false
 category: Test
 ---
 Fresh new copy
